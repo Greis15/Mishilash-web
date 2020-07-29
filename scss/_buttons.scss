@@ -1,0 +1,15 @@
+
+@mixin base_button   {
+    display: block;
+    width: 250px;
+    padding: 1rem;
+    color: #FFF;
+    text-align: center;
+    background: $first-color-alt;
+    border-radius: 10px;
+    border: none;
+    margin: 2rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+

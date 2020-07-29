@@ -1,0 +1,91 @@
+
+@mixin footer-horizontal {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(1,1fr);
+    justify-content: center;
+    padding: 2rem;  
+    color: #FFF;
+    background: $four-color;
+    border-bottom: 1px solid $border-color;
+    .item {
+        display: flex;
+        flex-direction: column;   
+    }
+
+    .item:first-child > .title-footer {
+        font-family: "Kaushan Script" ;
+        color: $third-color;
+    }
+    .title-footer::after {
+        content: " ";
+        display: block;
+        width: 50px;
+        background-color: $first-color;
+        height: 3px;
+    }
+    
+    .title-footer,
+    & p {
+        padding: 1rem;
+        color: $third-color; 
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        padding: 0 1rem 1rem; 
+    }
+    
+        
+    .calendar {
+        display: flex;
+        align-items: center;  
+    }
+    
+    .content__link-info {    
+        display: flex;
+        color: $first-color;
+    }
+    
+    .link__info-footer {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 1rem;
+        width: 3rem;
+        height: 3rem;
+        background-color: hsla(0,0%,100%,.5);
+        border-radius: 50%; 
+    }
+
+    svg {
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        }
+
+    .icon {
+        fill: $four-color;
+        border-radius: 50%; 
+    }
+    
+  
+}
+
+@mixin  footer-vertical {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(1,1fr);
+    justify-content: center;
+    align-items: center;
+
+        .title-footer {
+            padding: .5rem;
+        }
+      
+        .item {
+            padding: 1rem;
+        }
+
+}
