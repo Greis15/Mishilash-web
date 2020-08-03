@@ -41,7 +41,7 @@ input, textarea {
 
 body {
   font-weight: 400;
-  line-height: 1.8;
+  line-height: 1.6;
   font-size: 0.9375rem;
   color: #53575A;
   font-family: "Raleway", sans-serif;
@@ -51,7 +51,6 @@ h1 {
   width: 100%;
   color: #000;
   font-family: "Josefin Sans", sans-serif;
-  font-style: italic;
   font-size: 3rem;
   font-weight: 200;
   text-shadow: 2px 2px 2px rgba(144, 154, 165, 0.5);
@@ -172,13 +171,12 @@ header {
     height: 8rem; }
 
 .slider__content {
-  background-image: url(../img/woman-with-red-lipstick-looking-up-3762762.jpg);
+  background-image: url(/img/woman-with-red-lipstick-looking-up-3762762.jpg);
   width: 100%;
   height: 650px;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover; 
-}
+  background-size: cover; }
 
 .nosotros__content {
   display: flex;
@@ -188,9 +186,12 @@ header {
   .nosotros__content .nosotros-text {
     width: 100%;
     text-align: center;
-    padding: .5rem; }
+    padding: .5rem;
+    background: #000; }
   .nosotros__content h1 {
     font-family: "Kaushan Script";
+    color: #FFF;
+    text-shadow: none;
     font-size: 4rem; }
   .nosotros__content span {
     width: 70%; }
@@ -200,8 +201,8 @@ header {
 
 .nosotros__img {
   width: 70%;
-  border-radius: 30px;
-  padding: 1rem; }
+  padding: 1rem;
+  border-radius: 30px; }
 
 .service__main {
   text-align: center; }
@@ -235,57 +236,96 @@ header {
   justify-content: center;
   align-items: center; }
 
-.gallery__img {
+.gallery {
   display: grid;
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(12, 5vw);
   gap: .5rem;
   width: 80%;
   padding: 1rem; }
-  .gallery__img img {
+  .gallery img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover; }
-  .gallery__img .img--1 {
+  .gallery .img--1 {
     grid-column: 1 / 5;
     grid-row: 1 / 7; }
-  .gallery__img .img--2 {
+  .gallery .img--2 {
     grid-column: 1 / 6;
     grid-row: 7 / 12; }
-  .gallery__img .img--3 {
+  .gallery .img--3 {
     grid-column: 8 / 14;
     grid-row: 1 / 7; }
-  .gallery__img .img--4 {
+  .gallery .img--4 {
     grid-column: 5 / 8;
     grid-row: 1 / 4; }
-  .gallery__img .img--5 {
+  .gallery .img--5 {
     grid-column: 5 / 8;
     grid-row: 4 / 7; }
-  .gallery__img .img--7 {
+  .gallery .img--7 {
     grid-column: 9 / 13;
     grid-row: 7 / 12; }
-  .gallery__img .img--8 {
+  .gallery .img--8 {
     grid-column: 14 / 17;
     grid-row: 1 / 5; }
-  .gallery__img .img--9 {
+  .gallery .img--9 {
     grid-column: 13 / 15;
     grid-row: 10 / 12; }
-  .gallery__img .img--10 {
+  .gallery .img--10 {
     grid-column: 13 / 17;
     grid-row: 7 / 10; }
-  .gallery__img .img--11 {
+  .gallery .img--11 {
     grid-column: 15 / 17;
     grid-row: 10 / 12; }
-  .gallery__img .img--12 {
+  .gallery .img--12 {
     grid-column: 14 / 17;
     grid-row: 5 / 7; }
-  .gallery__img .img--13 {
+  .gallery .img--13 {
     grid-column: 6 / 9;
     grid-row: 7 / 10; }
-  .gallery__img .img--14 {
+  .gallery .img--14 {
     grid-column: 6 / 9;
     grid-row: 9 / 12; }
+  .gallery .gallery__img:hover {
+    cursor: pointer;
+    transform: scale(1.1); }
+
+/* EFECTO LIGHTBOX EN LA GALLERY EN INDEX.HTML */
+.imagen-light {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  transform: translate(100%);
+  transition: transform .2s ease-in-out; }
+
+.show {
+  transform: translate(0); }
+
+.agregar-imagen {
+  width: 55%;
+  border-radius: 10px;
+  transform: scale(0);
+  transition: transform .3s .2s; }
+
+.showImage {
+  transform: scale(1); }
+
+.close {
+  position: absolute;
+  top: 80px;
+  right: 25px;
+  width: 50px;
+  cursor: pointer;
+  z-index: 1;
+  fill: #fff; }
 
 .testimonios_content {
   display: flex;
@@ -297,23 +337,27 @@ header {
   padding: 1rem; }
 
 .testimonio {
-  width: 25%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  width: 25%;
   margin: 1rem; }
   .testimonio p {
     padding: 1rem;
     color: #000; }
 
+.contact__text {
+  background: linear-gradient(to left, #fc6767, #ff4bb7d7);
+  padding: 2rem;
+  text-align: center; }
+  .contact__text p {
+    color: #FFF; }
+
 .contact__body {
-  background-image: url(/img/mihai-stefan-IC6XpmK3fO0-unsplash.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  position: relative;
+  --color:rgba(0, 0, 0, 0.6);
+  background: linear-gradient(var(--color), var(--color)), url(/img/mihai-stefan-IC6XpmK3fO0-unsplash.jpg) center/cover;
   background-attachment: fixed;
   display: flex;
   flex-direction: column;
@@ -321,28 +365,31 @@ header {
   align-items: center;
   text-align: center; }
 
-[type='text'],
-[type='email'],
-.text-area {
-  width: 70%;
-  padding: 1rem;
-  margin: 1em;
-  font-family: var(--heading-font);
-  font-size: var(--normal-font-size);
-  font-weight: 400;
-  border: 1px solid #e6e6e6;
-  border-radius: 10px;
-  background-color: rgba(230, 230, 230, 0.7); }
-
-.text-area {
-  display: block;
-  height: 150px;
-  margin-left: auto;
-  margin-right: auto;
+.container-iframe {
+  position: relative;
   overflow: hidden;
-  resize: none;
-  border: 1px solid #e6e6e6;
-  border-radius: 10px; }
+  width: 340px;
+  height: 500px;
+  margin-top: 1rem; }
+  .container-iframe iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+
+.container-iframe iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+.contact--1 {
+  display: flex; }
+
+.contact-main {
+  padding: 2rem; }
 
 .title__form,
 .title__info-contact {
@@ -351,10 +398,13 @@ header {
 .form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-top: 2rem;
-  width: 50%;
-  background-color: rgba(0, 0, 0, 0.6); }
+  align-items: center;
+  padding: 2rem; }
+
+.info-contacto {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
 
 .button--submit {
   display: block;
@@ -406,7 +456,7 @@ header {
   border-radius: 50%; }
 
 .size {
-  width: 100%; }
+  width: 85%; }
 
 .contact--1 {
   padding: 1rem;
@@ -418,7 +468,6 @@ header {
   align-items: flex-start; }
 
 .text__content {
-  position: relative;
   padding: 2em;
   width: 100%;
   height: 80px;
@@ -527,6 +576,8 @@ footer {
     width: 45%; } }
 
 @media screen and (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem; }
   .testimonios_content {
     flex-direction: column;
     padding: 2rem; }
@@ -541,24 +592,29 @@ footer {
     padding: 0; }
   .contact--1 {
     flex-direction: column;
-    padding: 0;
-    background-color: rgba(0, 0, 0, 0.6); }
-  .form {
-    width: 100%;
-    min-height: 100vh;
-    background-color: transparent; }
-  .content-main {
-    width: 50%; }
-  .info-contacto {
-    display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    padding: .5rem; }
+    align-items: center; }
+  .contact {
+    border-radius: initial;
+    margin: 0;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    display: flex;
+    justify-content: center; }
+  .content-main {
+    width: 70%;
+    padding: 1rem; }
+  p {
+    overflow-wrap: break-word; }
+  .close {
+    right: 15px; }
   .button-up {
     bottom: 80px;
     right: 5px; }
     .button-up svg {
-      width: 30px; } }
+      width: 30px; }
+  .agregar-imagen {
+    width: 80%; } }
 
 @media screen and (max-width: 480px) {
   .service__content {
@@ -572,4 +628,7 @@ footer {
     bottom: 90px;
     right: 5px;
     width: 50px;
-    height: 50px; } }
+    height: 50px; }
+  .form,
+  .contact--1 {
+    padding: 0; } }

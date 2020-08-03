@@ -185,11 +185,13 @@ header  {
         width: 100%;
         text-align: center;
         padding: .5rem;
+        background: #000;
     }
 
     h1 {
         font-family: "Kaushan Script" ;
-        // color: $title-color;
+        color: $third-color;
+        text-shadow: none;
         font-size: 4rem;
     }
     span {
@@ -202,8 +204,9 @@ header  {
 }
 .nosotros__img {
     width: 70%;
-    border-radius: 30px;
     padding: 1rem;
+    border-radius: 30px;
+    
 }
 
 .service__main{
@@ -238,7 +241,6 @@ header  {
         
 }
 
-
 .gallery__content {
     display: flex;
     flex-direction: column;
@@ -246,7 +248,7 @@ header  {
     align-items: center;
 }
 
-.gallery__img {
+.gallery {
     display: grid;
     grid-template-columns: repeat(16,1fr);
     grid-template-rows: repeat(12, 5vw);
@@ -322,29 +324,72 @@ header  {
     }
 
     .img--14 {
-         grid-column: 6 / 9;
+        grid-column: 6 / 9;
         grid-row: 9 / 12;
     }
+
+    .gallery__img:hover{
+        cursor: pointer;
+        transform: scale(1.1);
+    }
+}
+
+/* EFECTO LIGHTBOX EN LA GALLERY EN INDEX.HTML */
+
+.imagen-light {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .6);
+    transform: translate(100%);
+    transition: transform .2s ease-in-out;
+}
+
+.show {
+    transform: translate(0);
+}
+
+.agregar-imagen {
+    width: 55%;
+    border-radius: 10px;
+    transform: scale(0);
+    transition: transform .3s .2s;
+}
+.showImage {
+    transform: scale(1);
+}
+.close {
+    position: absolute;
+    top: 80px;
+    right: 25px;
+    width: 50px;
+    cursor: pointer;
+    z-index: 1;
+    fill: #fff;
 }
 
 .testimonios_content {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
-
 }
 .quote {
     width: 80px ;
     padding: 1rem;
 }
 .testimonio {
-    width: 25%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    width: 25%;
     margin: 1rem;
 
     p {
@@ -352,12 +397,19 @@ header  {
         color: $four-color
     }
 }
+
+.contact__text {
+    background: linear-gradient(to left, #fc6767, #ff4bb7d7); 
+    padding: 2rem;
+    text-align: center;
+   
+    p {
+        color: $third-color;
+    }
+}
 .contact__body {
-    background-image: url(/img/mihai-stefan-IC6XpmK3fO0-unsplash.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    position: relative;
+    --color :rgba(0, 0, 0, 0.6);
+    background : linear-gradient(var(--color),var(--color)), url(/img/mihai-stefan-IC6XpmK3fO0-unsplash.jpg) center / cover;
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
@@ -366,29 +418,36 @@ header  {
     text-align: center;
 }
 
-[type='text'] ,
-[type= 'email'],
-.text-area {
-    width: 70%;
-    padding: 1rem;
-    margin: 1em;
-    font-family: var(--heading-font);
-    font-size: var(--normal-font-size);
-    font-weight: 400;
-    border: 1px solid hsl(0, 0%, 90%);
-    border-radius: 10px;  
-    background-color: rgba(230, 230, 230, 0.7);
+.container-iframe {
+    position: relative;
+    overflow: hidden;
+    width: 340px;
+    height: 500px;
+    margin-top: 1rem;
+
+    & iframe{    
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+       
+    }
 }
 
-.text-area {
-    display: block;
-    height: 150px;  
-    margin-left: auto;
-    margin-right: auto;
-    overflow: hidden;
-    resize: none;
-    border: 1px solid hsl(0, 0%, 90%);
-    border-radius: 10px;
+.container-iframe iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.contact--1 {
+    display: flex;
+}
+.contact-main {
+    padding: 2rem;
 }
 .title__form,
 .title__info-contact {
@@ -397,12 +456,15 @@ header  {
 .form {   
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding-top: 2rem;
-    width: 50%;
-    background-color: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    padding: 2rem;
 }
 
+.info-contacto {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
 .button--submit {
    @include base_button;
@@ -420,7 +482,6 @@ header  {
 .direccion__content-img  {
     background-color: $first-color;
 }
-
 
 .content-main {
     position: relative;
@@ -451,7 +512,7 @@ header  {
     }
 
 .size {
-    width: 100%;
+    width: 85%;
 }
 
 
@@ -467,7 +528,6 @@ header  {
 }
 
 .text__content {
-    position: relative;
     padding: 2em;
     width: 100%;
     height: 80px;
@@ -523,7 +583,6 @@ footer {
     fill: $third-color;
 }
 
-
     @include mq (medium) {
         .service__content{
             display: flex;
@@ -536,6 +595,9 @@ footer {
 
     @include mq (small) {
 
+        h1 {
+            font-size: 2.5rem;
+        }
         .testimonios_content {
             flex-direction: column;
             padding: 2rem;
@@ -558,25 +620,32 @@ footer {
   
         .contact--1 {
             flex-direction: column;
-            padding: 0;
-            background-color: rgba(0, 0, 0, 0.6);
-            
+            justify-content: center;
+            align-items: center;          
         }
-        .form {
-            width: 100%;
-            min-height: 100vh;
-            background-color: transparent;
+        
+        .contact {
+            border-radius: initial;
+            margin: 0;
+            padding-top: 1rem;
+            padding-left: 1rem;
+            display: flex;
+            justify-content: center;
         }
 
+
         .content-main {
-            width: 50%;
+            width: 70%;
+            padding: 1rem;
         }
-        .info-contacto {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: .5rem;
+        p {
+            overflow-wrap: break-word;
         }
+
+       .close {
+           right: 15px;
+       }
+
         .button-up {
             bottom: 80px;
             right: 5px;
@@ -584,6 +653,11 @@ footer {
                 width: 30px;
             }
         }
+
+        .agregar-imagen {
+            width: 80%;
+        }
+      
     }
 
     @include mq (xs-small) {
@@ -604,6 +678,12 @@ footer {
         width: 50px;
         height: 50px;
         }
+        
+        .form,
+        .contact--1 {
+            padding: 0;
+        }
+       
     }
     
 
