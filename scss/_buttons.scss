@@ -1,15 +1,17 @@
 
 @mixin base_button   {
     display: block;
-    width: 250px;
+    width: 200px;
+    height: 60px;
     padding: 1rem;
-    color: #FFF;
-    text-align: center;
-    background: $first-color-alt;
-    border-radius: 10px;
-    border: none;
     margin: 2rem;
     margin-right: auto;
     margin-left: auto;
+    color: #FFF;
+    text-align: center;
+    background: #f580b5;
+    border-radius: 10px;
+    border: none;
+    
 }
 
