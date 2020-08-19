@@ -217,9 +217,13 @@ header  {
 }
 
 .service__main{
-    padding: 1rem 0;
+    padding-top: 1rem;
     text-align: center;
     background-color: #fce5fccc;
+    
+    h2 {
+        padding: 1rem;
+    }
 
     .service-link{
         display: flex;
@@ -249,8 +253,8 @@ header  {
 
 .service {
     border: 1px solid $border-color;
-    padding: 1rem;
     margin-bottom: 2rem;
+    padding: 1rem;
     background: $third-color;
 }
 .service__content {
@@ -279,6 +283,11 @@ header  {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 1rem;
+
+    h2 {
+        text-align: center;
+    }
 }
 
 .gallery {
@@ -411,7 +420,12 @@ header  {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding-top: 1rem;
     background-color: #fce5fccc;
+
+    h2 {
+        text-align: center;
+    }
 }
 .quote {
     width: 80px ;
@@ -626,6 +640,10 @@ footer {
         h1 {
             font-size: 2rem;
         }
+
+        .slider__content {
+            height: 700px;
+        }
         .testimonios_content {
             flex-direction: column;
             padding: 2rem;
@@ -639,13 +657,15 @@ footer {
             display: flex;
             flex-wrap: wrap;
         }
+
         .service__content div {
-           width: 70%;
+            width: 70%;
         }
-       .service__content {
+
+        .service__content {
             padding: 0;
         }
-  
+
         .contact--1 {
             flex-direction: column;
             justify-content: center;
@@ -666,14 +686,15 @@ footer {
             width: 70%;
             padding: 1rem;
         }
+
         p {
             overflow-wrap: break-word;
         }
-
-       .close {
-           right: 15px;
-       }
-
+        
+        .close {
+            right: 15px;
+        }
+        
         .button-up {
             bottom: 80px;
             right: 5px;
@@ -689,7 +710,6 @@ footer {
         .service-link {
             flex-direction: column;;
         }
-      
     }
 
     @include mq (xs-small) {

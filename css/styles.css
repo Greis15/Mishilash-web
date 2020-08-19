@@ -58,6 +58,9 @@ h1 {
   text-align: center; }
 
 h2 {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.6rem;
   color: #232222; }
 
 header {
@@ -213,9 +216,11 @@ header {
   align-self: center; }
 
 .service__main {
-  padding: 1rem 0;
+  padding-top: 1rem;
   text-align: center;
   background-color: #fce5fccc; }
+  .service__main h2 {
+    padding: 1rem; }
   .service__main .service-link {
     display: flex;
     justify-content: space-evenly;
@@ -246,8 +251,8 @@ header {
 
 .service {
   border: 1px solid #DFE0E0;
-  padding: 1rem;
   margin-bottom: 2rem;
+  padding: 1rem;
   background: #FFF; }
 
 .service__content {
@@ -269,7 +274,10 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  padding-top: 1rem; }
+  .gallery__content h2 {
+    text-align: center; }
 
 .gallery {
   display: grid;
@@ -366,7 +374,10 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding-top: 1rem;
   background-color: #fce5fccc; }
+  .testimonios_content h2 {
+    text-align: center; }
 
 .quote {
   width: 80px;
@@ -601,6 +612,8 @@ footer {
 @media screen and (max-width: 768px) {
   h1 {
     font-size: 2rem; }
+  .slider__content {
+    height: 700px; }
   .testimonios_content {
     flex-direction: column;
     padding: 2rem; }
